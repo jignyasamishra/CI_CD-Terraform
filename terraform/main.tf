@@ -5,8 +5,9 @@ provider "aws" {
 resource "aws_instance" "example" {
  for_each = {
     "instance1" = {
-      ami           = "ami-0c55b159cbfafe1f0" 
+      ami           = "ami-0a1b648e2cd533174" 
       instance_type = "t2.micro"
+      name          = "jenkins"
     },
     "instance2" = {
       ami           = "ami-0c55b159cbfafe1f1" 
@@ -29,8 +30,7 @@ resource "aws_instance" "example" {
  ami           = each.value.ami
  instance_type = each.value.instance_type
  key_name      = "dem.key" 
- vpc_security_group_ids = ["sg-0123456789abcdef0"] 
-
+ 
  tags = {
     Name = each.key
  }
