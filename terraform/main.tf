@@ -22,8 +22,17 @@ resource "aws_instance" "example" {
     "instance3" = {
       ami           = "ami-0c55b159cbfafe1f2" 
       instance_type = "t2.medium"
+    },
+    "instance4" = {
+      ami           = "ami-0c55b159cbfafe1f3" 
+      instance_type = "t2.large"
+    },
+    "instance5" = {
+      ami           = "ami-0c55b159cbfafe1f4" 
+      instance_type = "t2.xlarge"
     }
  }
+
  ami           = each.value.ami
  instance_type = each.value.instance_type
  key_name      = "dem.key" 
